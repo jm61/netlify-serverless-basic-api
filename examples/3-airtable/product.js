@@ -3,6 +3,8 @@ const result = document.querySelector('.result')
 const fetchProduct = async () => {
     try {
         const id = window.location.search
+        const urlParams = new URLSearchParams(id);
+        console.log(urlParams)
         const {data:{fields}} = await axios.get(`/api/3-product${id}`)
         const {name, description,price,image} = fields
         result.innerHTML = `<h1 class="title">Single Product</h1>
