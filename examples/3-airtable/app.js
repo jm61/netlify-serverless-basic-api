@@ -14,7 +14,7 @@ const fetchProducts = async () =>  {
         }).join('')
         result.innerHTML = products
     } catch (error) {
-        result.innerHTML = '<h4><mark>There was an error fetching API...</mark></h4>'
+        
     }  
 }
 fetchProducts()

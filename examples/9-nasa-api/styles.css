@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color: wheat;
+    border-radius: 1rem;
+    margin: 2rem;
+    padding: .7rem;
+    border: 2px solid orchid;
+}
