@@ -7,7 +7,9 @@
     "example": "examples"
   },
   "scripts": {
-    "netlify": "netlify dev"
+    "netlify": "netlify dev",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run netlify\" \"npm run client\" "
   },
   "keywords": [],
   "author": "",
@@ -15,10 +17,11 @@
   "dependencies": {
     "airtable-node": "^0.1.20",
     "axios": "^0.21.1",
-    "nodemailer": "^6.4.17",
-    "stripe": "^8.131.1"
+    "nodemailer": "^6.5.0",
+    "stripe": "^8.137.0"
   },
   "devDependencies": {
+    "concurrently": "^6.0.0",
     "dotenv": "^8.2.0"
   }
 }

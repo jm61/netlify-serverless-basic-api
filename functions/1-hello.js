@@ -2,7 +2,10 @@
 exports.handler = async  (event, context) => {
     //console.log(context.functionName)
     return {
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        },
         statusCode:200,
-        body: `<mark>Here is</mark> the first Netlify Function`  
+        body: `Hello from the first Netlify Function`  
     }
 }

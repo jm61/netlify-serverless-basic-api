@@ -7,7 +7,7 @@ const fetchData = async () => {
         const {title,explanation,hdurl,date} = cosmos
         return `<div class="container">
         <h2>${title}</h2>
-        <img src="${hdurl}" alt="${title}" style="width:30%;"/>
+        <img src="${hdurl}" alt="${title}" style="width:70%;"/>
         <div class="info">
         <h5>${date}</h5>
         <h5 class="price">${explanation}</h5>
