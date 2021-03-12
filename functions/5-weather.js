@@ -5,8 +5,7 @@ exports.handler = async  (event, context) => {
     const method = event.httpMethod
     if(method !== 'POST') {
     return {
-        headers: 
-        {"Content-Type": "text/plain",
+        headers: {"Content-Type": "text/plain",
         'Access-Control-Allow-Origin': '*'},
         statusCode:405,
         body: 'Only POST request allowed!'
@@ -16,13 +15,15 @@ exports.handler = async  (event, context) => {
     try {
         const resp = await axios.get(`${url}${city}`)
         return {
-            headers: {"Content-Type": "text/plain"},
+            headers: {"Content-Type": "text/plain",
+            'Access-Control-Allow-Origin': '*'},
             statusCode:200,
             body: JSON.stringify(resp.data)
             }
     } catch (error) {
         return {
-            headers: {"Content-Type": "text/plain"},
+            headers: {"Content-Type": "text/plain",
+            'Access-Control-Allow-Origin': '*'},
             statusCode:404,
             body: JSON.stringify(error.data)
             }
