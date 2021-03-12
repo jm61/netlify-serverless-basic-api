@@ -1,14 +1,12 @@
 const items = require('../assets/data')
     
 exports.handler = async  (event, context) => {
-    //console.log(context.functionName)
     return {
         headers: {
-            'Access-Control-Allow-Origin': '*'
+            'Access-Control-Allow-Origin': '*',
+            "Content-Type": "text/plain"
         },
         statusCode:200,
-        //body: `<mark>Here is</mark> Basic Api Function`  
         body: JSON.stringify(items,null,'\n  ') 
-        //body: `JSON.stringify(items)`
     }
 }

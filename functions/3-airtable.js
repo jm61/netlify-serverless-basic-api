@@ -5,7 +5,7 @@ const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
   .base(process.env.AIRTABLE_BASE)
   .table('products')
 
-exports.handler = async  (event, context, cb) => {
+exports.handler = async  (event, context) => {
     try {
         const {records} = await airtable.list()
         const products = records.map((product) => {
@@ -15,7 +15,9 @@ exports.handler = async  (event, context, cb) => {
             return {id, name, url, price}
         })
         return {
-            headers: {"Content-Type": "text/plain"},
+            headers: 
+            {"Content-Type": "text/plain",
+            'Access-Control-Allow-Origin': '*'},
             statusCode:200,
             body: JSON.stringify(products, null, '  ')
         }

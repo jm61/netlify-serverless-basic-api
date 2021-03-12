@@ -19,6 +19,9 @@ exports.handler = async  (event, context) => {
             currency: 'usd'
         })
         return {
+            headers: 
+            {"Content-Type": "text/plain",
+            'Access-Control-Allow-Origin': '*'},
         statusCode:200,
         body: JSON.stringify({clientSecret: paymentIntent.client_secret}) 
     } 

@@ -16,7 +16,9 @@ exports.handler = async  (event, context) => {
                 }
             }
             return {
-                headers: {"Content-Type": "text/plain"},
+                headers: 
+                    {"Content-Type": "text/plain",
+                    'Access-Control-Allow-Origin': '*'},
                 statusCode: 200,
                 body: JSON.stringify(product, null, '  ')
                     }

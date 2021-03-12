@@ -5,7 +5,6 @@ const url= `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_API_K
 exports.handler = async  (event, context, cb) => {
     try {
         const resp = await axios.get(url)
-        //console.log(resp.data)
         return {
             headers: 
             {"Content-Type": "text/plain",

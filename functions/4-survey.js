@@ -5,7 +5,7 @@ const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
   .base(process.env.AIRTABLE_BASE)
   .table('survey')
 
-exports.handler = async  (event,context,cb) => {
+exports.handler = async  (event,context) => {
     const method = event.httpMethod
     if(method === 'GET') {
         try {
@@ -31,7 +31,6 @@ exports.handler = async  (event,context,cb) => {
      }
     }
     if(method === 'PUT') {
-        //console.log(event)
         try {
             const {id,votes} = JSON.parse(event.body)
             if(!id || !votes) {
@@ -39,7 +38,6 @@ exports.handler = async  (event,context,cb) => {
             }
         const fields = {votes:Number(votes)+1}
         const item = await airtable.update(id,{fields})
-        //console.log(item)
             if(item.error) {
         return {
                     statusCode: 400,
@@ -47,7 +45,9 @@ exports.handler = async  (event,context,cb) => {
                 }
             }
                 return {
-                    headers: {"Content-Type": "text/plain"},
+                    headers: 
+                        {"Content-Type": "text/plain",
+                        'Access-Control-Allow-Origin': '*'},
                     statusCode: 200,
                     body: JSON.stringify(item)
             }

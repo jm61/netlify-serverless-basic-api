@@ -15,9 +15,10 @@ exports.handler = async  (event, context) => {
         const data = await axios.post(url,{email},{headers: {
             Authorization: `Token ${process.env.BUTTONDOWN_API_KEY}`  
         }})
-        //console.log(data)
         return {
-            headers: {"Content-Type": "text/plain"},
+            headers: {"Content-Type": "text/plain"},headers: 
+            {"Content-Type": "text/plain",
+            'Access-Control-Allow-Origin': '*'},
             statusCode: 201,
             body: 'Success'
         }    

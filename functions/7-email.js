@@ -30,6 +30,9 @@ exports.handler = async  (event, context) => {
     try {
        await transporter.sendMail({...data}) 
        return {
+        headers: {"Content-Type": "text/plain"},headers: 
+            {"Content-Type": "text/plain",
+            'Access-Control-Allow-Origin': '*'},
         statusCode:200,
         body: `Success`  
      }
